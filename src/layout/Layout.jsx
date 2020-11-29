@@ -29,6 +29,8 @@ export default function Layout(props) {
       props.history.push(link);
    });
 
+   h.Vent.emit("link", props.match.params.page);
+
     return function cleanup() {
      h.Vent.removeAllListeners("link");
     };

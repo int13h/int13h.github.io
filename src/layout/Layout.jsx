@@ -26,7 +26,6 @@ const useStyles = makeStyles(() => ({
 
 export default function Layout(props) {
  useEffect(() => {
-   console.log("layout", props)
    h.Vent.addListener("link", (link) => {
       props.history.push(link);
    });
@@ -40,7 +39,7 @@ export default function Layout(props) {
 
   return (
     <div className={classes.contentParent}>
-      <SideBar page={props}/>
+      <SideBar page={props.history.location.pathname} />
       <div className={classes.content}>
         {props.children}
       </div>

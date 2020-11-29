@@ -1,5 +1,4 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import h from "../helpers";
 
@@ -34,17 +33,17 @@ const useStyles = makeStyles(() => ({
 }));
 
 const entries = {
-  "me": {
+  "/me": {
     name: "Me",
     icon: "glyphicons-user.svg",
     action: () => h.Vent.emit("link", "me")
   },
-  "build": {
+  "/build": {
     name: "Build",
     icon: "glyphicons-claw-hammer.svg",
     action: () => h.Vent.emit("link", "build")
   },
-  "code": {
+  "/code": {
     name: "Code",
     icon: "glyphicons-code.svg",
     action: () => h.Vent.emit("link", "code")
@@ -66,12 +65,11 @@ const entries = {
   }
 };
 
-export default withRouter(function SideBar(props) {
+export default function SideBar(props) {
   const classes = useStyles();
   const sidebarContent = Object.keys(entries).map((key) => {
     const entry = entries[key];
     const action = entry.hasOwnProperty("action");
-    console.log(props)
     const activeStyle = key === props.page
       ? {
         backgroundColor: "#e9e9e9",
@@ -103,4 +101,4 @@ export default withRouter(function SideBar(props) {
       {sidebarContent}
     </div>
   );
-});
+};

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import SideBar from "./SideBar";
 import h from "../helpers";
+import _ from "lodash";
 
 const useStyles = makeStyles(() => ({
   contentParent: {
@@ -29,7 +30,7 @@ export default function Layout(props) {
       props.history.push(link);
    });
 
-   h.Vent.emit("link", props.match.params.page);
+   h.Vent.emit("link", _.get(props.match.params, "page", "me"));
 
     return function cleanup() {
      h.Vent.removeAllListeners("link");

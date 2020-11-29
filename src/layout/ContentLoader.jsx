@@ -1,7 +1,10 @@
 import React from "react";
+import _ from "lodash";
 
 export default function ContentLoader(props) {
+
+  console.log(props)
   return (
-    <div>Hi</div>
+    <div>{props.match.params.page}</div>
   );
 };

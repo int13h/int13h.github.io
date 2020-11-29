@@ -71,13 +71,13 @@ export default withRouter(function SideBar(props) {
   const classes = useStyles();
   const sidebarContent = Object.keys(entries).map((key) => {
     const entry = entries[key];
-    const link = entry.hasOwnProperty("link")
+    const action = entry.hasOwnProperty("action")
 
     return (
       <div
         key={entry.name}
         className={classes.link}
-        onClick={entry.link}
+        onClick={entry.action}
       >
         <img
           className={classes.linkIcon}

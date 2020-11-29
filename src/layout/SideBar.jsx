@@ -35,7 +35,8 @@ const useStyles = makeStyles(() => ({
     opacity: .6
   },
   activeLink: {
-
+    backgroundColor: "#e9e9e9",
+    color: "#000"
   }
 }));
 
@@ -57,15 +58,18 @@ const entries = {
   },
   "https://www.goodreads.com/review/list/69303468": {
     name: "Books",
-    icon: "glyphicons-book.svg"
+    icon: "glyphicons-book.svg",
+    action: () => window.open("https://www.goodreads.com/review/list/69303468")
   },
   "https://github.com/int13h": {
     name: "Github",
-    icon: "github.svg"
+    icon: "github.svg",
+    action: () => window.open("https://github.com/int13h")
   },
   "https://twitter.com/7061756c0d": {
     name: "Twitter",
-    icon: "twitter.svg"
+    icon: "twitter.svg",
+    action: window.open("https://twitter.com/7061756c0d")
   }
 };
 
@@ -73,13 +77,14 @@ export default withRouter(function SideBar(props) {
   const classes = useStyles();
   const sidebarContent = Object.keys(entries).map((key) => {
     const entry = entries[key];
-    const action = entry.hasOwnProperty("action")
+    const action = entry.hasOwnProperty("action");
 
     return (
       <div
         key={entry.name}
         className={classes.link}
         onClick={entry.action}
+        aria-label={key}
       >
         <img
           className={classes.linkIcon}

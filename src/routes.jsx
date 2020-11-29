@@ -11,7 +11,7 @@ import ContentLoader from "./layout/ContentLoader";
 const history = createBrowserHistory();
 const routes = (
   <Router history={history}>
-    <Layout>
+    <Layout history={history}>
       <Switch>
         <Route path="/:page" component={ContentLoader} />
         <Route path="*" component={ContentLoader} />

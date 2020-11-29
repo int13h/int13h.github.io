@@ -72,7 +72,7 @@ export default withRouter(function SideBar(props) {
     const entry = entries[key];
     const action = entry.hasOwnProperty("action");
     console.log(props)
-    const activeStyle = key === props.match.params.page
+    const activeStyle = key === props.page
       ? {
         backgroundColor: "#e9e9e9",
         color: "#000"

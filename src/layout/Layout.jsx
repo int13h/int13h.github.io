@@ -30,7 +30,7 @@ export default function Layout(props) {
       props.history.push(link);
    });
 
-   h.Vent.emit("link", _.get(props.match.params, "page", "me"));
+   h.Vent.emit("link", _.get(props, "match.params.page", "me"));
 
     return function cleanup() {
      h.Vent.removeAllListeners("link");

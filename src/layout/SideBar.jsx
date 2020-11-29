@@ -12,6 +12,7 @@ const useStyles = makeStyles(() => ({
   },
   link: {
     padding: "0 20px",
+    marginBottom: "5px",
     cursor: "pointer",
     height: "36px",
     lineHeight: "36px",

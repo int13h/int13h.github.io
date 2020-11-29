@@ -39,7 +39,7 @@ export default function Layout(props) {
 
   return (
     <div className={classes.contentParent}>
-      <SideBar page={props.history.location.pathname} />
+      <SideBar />
       <div className={classes.content}>
         {props.children}
       </div>

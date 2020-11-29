@@ -1,6 +1,7 @@
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import h from "../helpers";
 
 const useStyles = makeStyles(() => ({
   sidebarParent: {
@@ -39,15 +40,16 @@ const useStyles = makeStyles(() => ({
 }));
 
 const entries = {
-  "/": {
+  "me": {
     name: "Me",
-    icon: "glyphicons-user.svg"
+    icon: "glyphicons-user.svg",
+    action: () => h.Vent.emit("link", "me")
   },
-  "/build": {
+  "build": {
     name: "Build",
     icon: "glyphicons-claw-hammer.svg"
   },
-  "/code": {
+  "code": {
     name: "Code",
     icon: "glyphicons-code.svg"
   },
@@ -66,15 +68,16 @@ const entries = {
 };
 
 export default withRouter(function SideBar(props) {
-  console.log(props)
   const classes = useStyles();
   const sidebarContent = Object.keys(entries).map((key) => {
     const entry = entries[key];
+    const link = entry.hasOwnProperty("link")
 
     return (
       <div
         key={entry.name}
         className={classes.link}
+        onClick={entry.link}
       >
         <img
           className={classes.linkIcon}

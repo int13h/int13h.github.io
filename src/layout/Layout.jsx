@@ -1,6 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import SideBar from './SideBar';
+import React, { useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import SideBar from "./SideBar";
+import h from "../helpers";
 
 const useStyles = makeStyles(() => ({
   contentParent: {
@@ -23,6 +24,16 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Layout(props) {
+ useEffect(() => {
+   h.Vent.addListener("link", (link) => {
+      props.history.push(link);
+   });
+
+    return function cleanup() {
+     h.Vent.removeAllListeners("link");
+    };
+  });
+
   const classes = useStyles();
 
   return (

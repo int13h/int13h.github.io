@@ -71,7 +71,7 @@ export default withRouter(function SideBar(props) {
   const sidebarContent = Object.keys(entries).map((key) => {
     const entry = entries[key];
     const action = entry.hasOwnProperty("action");
-    console.log(props.match.params.page)
+    console.log(props)
     const activeStyle = key === props.match.params.page
       ? {
         backgroundColor: "#e9e9e9",

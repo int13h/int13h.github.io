@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { withRouter } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import SideBar from "./SideBar";
 import h from "../helpers";
@@ -24,10 +23,9 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-export default withRouter(function Layout(props) {
+export default function Layout(props) {
  useEffect(() => {
    h.Vent.addListener("link", (link) => {
-     console.log(link);
       props.history.push(link);
    });
 
@@ -46,5 +44,5 @@ export default withRouter(function Layout(props) {
       </div>
     </div>
   );
-});
+};
 

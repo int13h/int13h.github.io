@@ -47,11 +47,13 @@ const entries = {
   },
   "build": {
     name: "Build",
-    icon: "glyphicons-claw-hammer.svg"
+    icon: "glyphicons-claw-hammer.svg",
+    action: () => h.Vent.emit("link", "build")
   },
   "code": {
     name: "Code",
-    icon: "glyphicons-code.svg"
+    icon: "glyphicons-code.svg",
+    action: () => h.Vent.emit("link", "code")
   },
   "https://www.goodreads.com/review/list/69303468": {
     name: "Books",

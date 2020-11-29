@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import h from "../helpers";
 
@@ -65,12 +66,12 @@ const entries = {
   }
 };
 
-export default function SideBar(props) {
+export default withRouter(function SideBar(props) {
   const classes = useStyles();
   const sidebarContent = Object.keys(entries).map((key) => {
     const entry = entries[key];
     const action = entry.hasOwnProperty("action");
-    const activeStyle = key === props.page
+    const activeStyle = key === props.history.location.pathname
       ? {
         backgroundColor: "#e9e9e9",
         color: "#000"
@@ -101,4 +102,4 @@ export default function SideBar(props) {
       {sidebarContent}
     </div>
   );
-};
+});

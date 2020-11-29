@@ -26,17 +26,10 @@ const useStyles = makeStyles(() => ({
       color: "#000"
     }
   },
-  linkText: {
-
-  },
   linkIcon: {
     width: "26px",
     height: "26px",
     opacity: .6
-  },
-  activeLink: {
-    backgroundColor: "#e9e9e9",
-    color: "#000"
   }
 }));
 
@@ -69,7 +62,7 @@ const entries = {
   "https://twitter.com/7061756c0d": {
     name: "Twitter",
     icon: "twitter.svg",
-    action: window.open("https://twitter.com/7061756c0d")
+    action: () => window.open("https://twitter.com/7061756c0d")
   }
 };
 
@@ -78,11 +71,17 @@ export default withRouter(function SideBar(props) {
   const sidebarContent = Object.keys(entries).map((key) => {
     const entry = entries[key];
     const action = entry.hasOwnProperty("action");
+    const activeStyle = key === props.match.params.page
+      ? {
+        backgroundColor: "#e9e9e9",
+        color: "#000"
+      } : {};
 
     return (
       <div
         key={entry.name}
         className={classes.link}
+        style={activeStyle}
         onClick={entry.action}
         aria-label={key}
       >
@@ -91,9 +90,7 @@ export default withRouter(function SideBar(props) {
           src={`./images/${entry.icon}`}
           alt={entry.name}
         />
-        <span 
-          className={classes.linkText}
-        >
+        <span>
           {entry.name}
         </span>
       </div>

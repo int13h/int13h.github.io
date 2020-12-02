@@ -22,6 +22,7 @@ const useStyles = makeStyles(() => ({
     display: "grid",
     gridTemplateColumns: "40px 1fr",
     alignItems: "center",
+    userSelect: "none",
     "&:hover": {
       backgroundColor: "#e9e9e9",
       color: "#000"

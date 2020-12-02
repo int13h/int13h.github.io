@@ -1,5 +1,5 @@
 import React from "react";
-import {EventEmitter} from "fbemitter";
+import { EventEmitter } from "fbemitter";
 
 var global = {
   Vent: null
